@@ -1,0 +1,243 @@
+[
+    {
+        "id": 1,
+        "name": "New Trendy Cotton Saree with hand Bag",
+        "price": 670,
+        "image": "images/9.webp"
+    },
+    {
+        "id": 2,
+        "name": "Full Buta Mix Cotton Saree",
+        "price": 550,
+        "image": "images/8.webp"
+    },
+    {
+        "id": 3,
+        "name": "Women's Party Wear Cotton Saree",
+        "price": 810,
+        "image": "images/10.webp"
+    }
+    ,
+    {
+        "id": 4,
+        "name": "New Yellow Hot Color Chiffon Saree",
+        "price": 410,
+        "image": "images/1.webp"
+    },
+    {
+        "id": 5,
+        "name": "Light Green With Blouse Piece Saree",
+        "price": 650,
+        "image": "images/11.webp"
+    },
+    {
+        "id": 6,
+        "name": "Printed Daily Wear Gergeott Saree",
+        "price": 279,
+        "image": "images/7.webp"
+    },
+    {
+        "id": 7,
+        "name": "New Hot White Color Chiffon Saree",
+        "price": 430,
+        "image": "images/2.webp"
+    },
+    {
+        "id": 8,
+        "name": "Pure Kesariya Chiffon Saree",
+        "price": 440,
+        "image": "images/3.webp"
+    },
+    {
+        "id": 9,
+        "name": "Multi Color Gergeotte Saree",
+        "price": 320,
+        "image": "images/4.webp"
+    },
+    {
+        "id": 10,
+        "name": "Light Yellow Winter Wear Saree",
+        "price": 299,
+        "image": "images/5.webp"
+    },
+    {
+        "id": 11,
+        "name": "Light Blue Gergeotte Saree",
+        "price": 329,
+        "image": "images/6.webp"
+    },
+    {
+        "id": 12,
+        "name": "Dark Blue Silk Saree",
+        "price": 870,
+        "image": "images/12.webp"
+    },
+    {
+        "id": 13,
+        "name": "Red Attractive Silk Saree",
+        "price": 560,
+        "image": "images/13.webp"
+    },
+    {
+        "id": 14,
+        "name": "Casual Wear Silk Saree",
+        "price": 750,
+        "image": "images/14.webp"
+    },
+    {
+        "id": 15,
+        "name": "Party Wear Woven Saree",
+        "price": 950,
+        "image": "images/15.webp"
+    },
+    {
+        "id": 16,
+        "name": "Daily Wear Woven Saree",
+        "price": 840,
+        "image": "images/16.webp"
+    },
+    {
+        "id": 17,
+        "name": "Yellow and Red Mix Silk Saree",
+        "price": 420,
+        "image": "images/17.webp"
+    },
+    {
+        "id": 18,
+        "name": "Silver Color Mix Cotton Saree",
+        "price": 400,
+        "image": "images/18.webp"
+    },
+    {
+        "id": 19,
+        "name": "White Floral Chiffon Saree",
+        "price": 620,
+        "image": "images/19.webp"
+    },
+    {
+        "id": 20,
+        "name": "Nevy Blue and Pink cotton Saree",
+        "price": 560,
+        "image": "images/20.webp"
+    },
+    {
+        "id": 21,
+        "name": "ZedGreen with Gold zari Silk Saree",
+        "price": 1200,
+        "image": "images/21.webp"
+    },
+    {
+        "id": 22,
+        "name": "New Bnarasi Chiffon Saree",
+        "price": 520,
+        "image": "images/22.webp"
+    },
+    {
+        "id": 23,
+        "name": "Banarasi Silk Saree",
+        "price": 499,
+        "image": "images/23.webp"
+    },
+    {
+        "id": 24,
+        "name": "Gold Zari Silk Saree",
+        "price": 449,
+        "image": "images/24.webp"
+    },
+    {
+        "id": 25,
+        "name": "Women's Banarasi Silk Saree",
+        "price": 599,
+        "image": "images/25.webp"
+    },
+    {
+        "id": 26,
+        "name": "Art Silk Saree with blouse piece",
+        "price": 999,
+        "image": "images/26.webp"
+    },
+    {
+        "id": 27,
+        "name": "Woven Silk Saree with Silver Zari",
+        "price": 749,
+        "image": "images/27.webp"
+    },
+    {
+        "id": 28,
+        "name": "Silk Blend Saree with Blouse piece",
+        "price": 1299,
+        "image": "images/28.webp"
+    },
+    {
+        "id": 29,
+        "name": "Party Wear Woven Saree",
+        "price": 999,
+        "image": "images/29.webp"
+    },
+    {
+        "id": 30,
+        "name": "Pure Cotton Saree with blouse piece",
+        "price": 1150,
+        "image": "images/30.webp"
+    },
+    {
+        "id": 31,
+        "name": "Gold Zari full booti saree",
+        "price": 1000,
+        "image": "images/31.webp"
+    },
+    {
+        "id": 32,
+        "name": "Chorcol Black woven Saree",
+        "price": 1250,
+        "image": "images/32.webp"
+    },
+    {
+        "id": 33,
+        "name": "Pure Silk with silver zari",
+        "price": 620,
+        "image": "images/33.webp"
+    },
+    {
+        "id": 34,
+        "name": "New Trend Chiffon Saree",
+        "price": 580,
+        "image": "images/34.webp"
+    },
+    {
+        "id": 35,
+        "name": "Light Green Gergeotte Saree",
+        "price": 350,
+        "image": "images/35.webp"
+    },
+    {
+        "id": 36,
+        "name": "Full Booti Cotton Saree",
+        "price": 780,
+        "image": "images/36.webp"
+    },
+    {
+        "id": 37,
+        "name": "Mix Cotton Saree",
+        "price": 699,
+        "image": "images/37.webp"
+    },
+    {
+        "id": 38,
+        "name": "Pure Silk Saree 499",
+        "price": 499,
+        "image": "images/38.webp"
+    },
+    {
+        "id": 39,
+        "name": "Woven Saree with Gold Zari",
+        "price": 479,
+        "image": "images/39.webp"
+    },
+    {
+        "id": 40,
+        "name": "Mix Chiffon with zari",
+        "price": 430,
+        "image": "images/40.webp"
+    }
+]

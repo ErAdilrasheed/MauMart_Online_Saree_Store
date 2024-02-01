@@ -1,0 +1,3497 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MauMart-An Online Saree Store</title>
+
+    <!--
+    - favicon
+  -->
+    <link
+      rel="shortcut icon"
+      href="./assets/images/icons/favicon.svg"
+      type="image/x-icon"
+    />
+
+    <!--
+    - custom css link
+  -->
+    <link rel="stylesheet" href="./assets/css/style-prefix.css" />
+
+    <!--
+    - google font link
+  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="overlay" data-overlay></div>
+
+    <!--
+    - MODAL
+  -->
+
+    <div class="modal" data-modal>
+      <div class="modal-close-overlay" data-modal-overlay></div>
+
+      <div class="modal-content">
+        <button class="modal-close-btn" data-modal-close>
+          <ion-icon name="close-outline"></ion-icon>
+        </button>
+
+        <div class="newsletter-img">
+          <img
+            src="./assets/images/newsletter.png"
+            alt="subscribe newsletter"
+            width="400"
+            height="400"
+          />
+        </div>
+
+        <div class="newsletter">
+          <form name="submit-to-google-sheet">
+            <div class="newsletter-header">
+              <h3 class="newsletter-title">Subscribe Newsletter.</h3>
+
+              <p class="newsletter-desc">
+                Subscribe the <b>MauMart</b> to get latest products and discount
+                update.
+              </p>
+              <br />
+              <input
+                type="email"
+                name="Email"
+                placeholder="Your Email"
+                required
+              />
+            </div>
+
+            <button type="submit" class="btn-newsletter">Subscribe</button>
+          </form>
+          <span id="msg"></span>
+        </div>
+      </div>
+    </div>
+
+    <!--
+    - NOTIFICATION TOAST
+  -->
+
+    <div class="notification-toast" data-toast>
+      <button class="toast-close-btn" data-toast-close>
+        <ion-icon name="close-outline"></ion-icon>
+      </button>
+
+      <div class="toast-banner">
+        <img
+          src="./assets/images/logo/notification.PNG"
+          alt="Rose Gold Saree"
+          width="80"
+          height="70"
+        />
+      </div>
+
+      <div class="toast-detail">
+        <p class="toast-message">Someone in new just bought</p>
+
+        <p class="toast-title">Rose Gold Silk Saree</p>
+
+        <p class="toast-meta"><time datetime="PT2M">2 Minutes</time> ago</p>
+      </div>
+    </div>
+
+    <!--
+    - HEADER
+  -->
+
+    <header>
+      <div class="header-top">
+        <div class="container">
+          <ul class="header-social-container">
+            <li>
+              <a href="https://www.facebook.com/Er.MARasheed" class="social-link">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="https://twitter.com/Er_MARasheed" class="social-link">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="https://www.instagram.com/er.marasheed" class="social-link">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="https://www.linkedin.com/in/adilrasheedknit" class="social-link">
+                <ion-icon name="logo-linkedin"></ion-icon>
+              </a>
+            </li>
+          </ul>
+
+          <div class="header-alert-news">
+            <p>
+              <b>Free Shipping</b>
+              This Week Order Above - ₹599
+            </p>
+          </div>
+
+          <div class="header-top-actions">
+            <select name="currency">
+              <option value="eur">INR &#8377;</option>
+              <option value="usd">USD &dollar;</option>
+            </select>
+
+            <select name="language">
+              <option value="en-US">English</option>
+              <option value="es-ES">Hindi</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-main">
+        <div class="container">
+          <a href="#" class="header-logo">
+            <img
+              src="./assets/images/logo/logo.png"
+              alt="MauMart's logo"
+              width="120"
+              height="36"
+            />
+          </a>
+
+          <div class="header-search-container">
+            <input
+              type="search"
+              name="search"
+              id="search-item"
+              class="search-field"
+              placeholder="Enter your product name..."
+              onkeyup="search()"
+            />
+
+            <button class="search-btn">
+              <ion-icon name="search-outline"></ion-icon>
+            </button>
+          </div>
+
+          <div class="header-user-actions">
+            <button class="action-btn">
+              <ion-icon name="person-outline"></ion-icon>
+            </button>
+
+            <button class="action-btn">
+              <ion-icon name="heart-outline"></ion-icon>
+              <span class="count">0</span>
+            </button>
+
+            <button class="action-btn">
+              <ion-icon name="bag-handle-outline"></ion-icon>
+              <span class="count">0</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <nav class="desktop-navigation-menu">
+        <div class="container">
+          <ul class="desktop-menu-category-list">
+            <li class="menu-category">
+              <a href="#" class="menu-title">Home</a>
+            </li>
+
+            <li class="menu-category">
+              <a href="#" class="menu-title">Categories</a>
+
+              <div class="dropdown-panel">
+                <ul class="dropdown-panel-list">
+                  <li class="menu-title">
+                    <a href="#">Silk</a>
+                  </li>
+
+                  <li class="panel-list-item">
+                    <a href="#">Banarasi </a>
+                  </li>
+
+                  <li class="panel-list-item">
+                    <a href="#">Mauwali</a>
+                  </li>
+
+                  <li class="panel-list-item">
+                    <a href="#">Kanchipuram</a>
+                  </li>
+
+                  <li class="panel-list-item">
+                    <a href="#">Assamee</a>
+                  </li>
+
+                  <li class="panel-list-item">
+                    <a href="#">Tussar</a>
+                  </li>
+
+                  <li class="panel-list-item">
+                    <a href="#">
+                      <img
+                        src="./assets/images/silk.webp"
+                        alt="saree"
+                        width="250"
+                        height="119"
+                      />
+                    </a>
+                  </li>
+                </ul>
+
+                <ul class="dropdown-panel-list">
+                  <li class="menu-title">
+                    <a href="#">Cotton</a>
+                  </li>
+
+                  <li class="panel-list-item">
+                    <a href="#">Bandhani</a>
+                  </li>
+
+                  <li class="panel-list-item">
+                    <a href="#">Chanderi</a>
+                  </li>
+
+                  <li class="panel-list-item">
+                    <a href="#">Banarasi</a>
+                  </li>
+
+                  <li class="panel-list-item">
+                    <a href="#">Sambalpuri</a>
+                  </li>
+
+                  <li class="panel-list-item">
+                    <a href="#">Godwal</a>
+                  </li>
+
+                  <li class="panel-list-item">
+                    <a href="#">
+                      <img
+                        src="./assets/images/cotton.webp"
+                        alt="saree"
+                        width="250"
+                        height="119"
+                      />
+                    </a>
+                  </li>
+                </ul>
+
+                <ul class="dropdown-panel-list">
+                  <li class="menu-title">
+                    <a href="#">Georgette</a>
+                  </li>
+
+                  <li class="panel-list-item">
+                    <a href="#">Banarasi Georgette</a>
+                  </li>
+
+                  <li class="panel-list-item">
+                    <a href="#">Jacquard Georgette</a>
+                  </li>
+
+                  <li class="panel-list-item">
+                    <a href="#">Nylon Georgette</a>
+                  </li>
+
+                  <li class="panel-list-item">
+                    <a href="#">Printed Georgette</a>
+                  </li>
+
+                  <li class="panel-list-item">
+                    <a href="#">Embroidered Georgette</a>
+                  </li>
+
+                  <li class="panel-list-item">
+                    <a href="#">
+                      <img
+                        src="./assets/images/georgette.webp"
+                        alt="saree"
+                        width="250"
+                        height="119"
+                      />
+                    </a>
+                  </li>
+                </ul>
+
+                <ul class="dropdown-panel-list">
+                  <li class="menu-title">
+                    <a href="#">Chiffon</a>
+                  </li>
+
+                  <li class="panel-list-item">
+                    <a href="#">Plain Chiffon</a>
+                  </li>
+
+                  <li class="panel-list-item">
+                    <a href="#">Floral Chiffon</a>
+                  </li>
+
+                  <li class="panel-list-item">
+                    <a href="#">Ombre Chiffon</a>
+                  </li>
+
+                  <li class="panel-list-item">
+                    <a href="#">Lace Chiffon</a>
+                  </li>
+
+                  <li class="panel-list-item">
+                    <a href="#">Zari Work Chiffon</a>
+                  </li>
+
+                  <li class="panel-list-item">
+                    <a href="#">
+                      <img
+                        src="./assets/images/chiffon.webp"
+                        alt="saree"
+                        width="250"
+                        height="119"
+                      />
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="menu-category">
+              <a href="#Arrival" class="menu-title">New Arrival</a>
+
+            <li class="menu-category">
+              <a href="#Products" class="menu-title">Products</a>
+
+            <li class="menu-category">
+              <a href="#winter" class="menu-title">Winter Collection</a>
+
+            <li class="menu-category">
+              <a href="#deal" class="menu-title">Hot Offers</a>
+            </li>
+            <li class="menu-category">
+              <a href="#Directory" class="menu-title">Directory</a>
+
+            <li class="menu-category">
+              <a href="#blog" class="menu-title">Blog</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="mobile-bottom-navigation">
+        <button class="action-btn" data-mobile-menu-open-btn>
+          <ion-icon name="menu-outline"></ion-icon>
+        </button>
+
+        <button class="action-btn">
+          <ion-icon name="bag-handle-outline"></ion-icon>
+
+          <span class="count">0</span>
+        </button>
+
+        <button class="action-btn">
+          <ion-icon name="home-outline"></ion-icon>
+        </button>
+
+        <button class="action-btn">
+          <ion-icon name="heart-outline"></ion-icon>
+
+          <span class="count">0</span>
+        </button>
+
+        <button class="action-btn" data-mobile-menu-open-btn>
+          <ion-icon name="grid-outline"></ion-icon>
+        </button>
+      </div>
+
+      <nav class="mobile-navigation-menu has-scrollbar" data-mobile-menu>
+        <div class="menu-top">
+          <h2 class="menu-title">Menu</h2>
+
+          <button class="menu-close-btn" data-mobile-menu-close-btn>
+            <ion-icon name="close-outline"></ion-icon>
+          </button>
+        </div>
+
+        <ul class="mobile-menu-category-list">
+          <li class="menu-category">
+            <a href="#" class="menu-title">Home</a>
+          </li>
+
+          <li class="menu-category">
+            <button class="accordion-menu" data-accordion-btn>
+              <p class="menu-title">Trendy</p>
+
+              <div>
+                <ion-icon name="add-outline" class="add-icon"></ion-icon>
+                <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+              </div>
+            </button>
+
+            <ul class="submenu-category-list" data-accordion>
+              <li class="submenu-category">
+                <a href="#" class="submenu-title">Mix Cotton</a>
+              </li>
+
+              <li class="submenu-category">
+                <a href="#" class="submenu-title">Chiffon</a>
+              </li>
+
+              <li class="submenu-category">
+                <a href="#" class="submenu-title">Art Silk</a>
+              </li>
+
+              <li class="submenu-category">
+                <a href="#" class="submenu-title">Woven</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="menu-category">
+            <button class="accordion-menu" data-accordion-btn>
+              <p class="menu-title">Latest</p>
+
+              <div>
+                <ion-icon name="add-outline" class="add-icon"></ion-icon>
+                <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+              </div>
+            </button>
+
+            <ul class="submenu-category-list" data-accordion>
+              <li class="submenu-category">
+                <a href="#" class="submenu-title">Banarasi Silk</a>
+              </li>
+
+              <li class="submenu-category">
+                <a href="#" class="submenu-title">Sambalpuri Cotton</a>
+              </li>
+
+              <li class="submenu-category">
+                <a href="#" class="submenu-title">Godawla</a>
+              </li>
+
+              <li class="submenu-category">
+                <a href="#" class="submenu-title">Mauwali</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="menu-category">
+            <button class="accordion-menu" data-accordion-btn>
+              <p class="menu-title">Party Wear</p>
+
+              <div>
+                <ion-icon name="add-outline" class="add-icon"></ion-icon>
+                <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+              </div>
+            </button>
+
+            <ul class="submenu-category-list" data-accordion>
+              <li class="submenu-category">
+                <a href="#" class="submenu-title">Banarasi Silk</a>
+              </li>
+
+              <li class="submenu-category">
+                <a href="#" class="submenu-title">Mauwali Silk</a>
+              </li>
+
+              <li class="submenu-category">
+                <a href="#" class="submenu-title">Net</a>
+              </li>
+
+              <li class="submenu-category">
+                <a href="#" class="submenu-title">Georgette</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="menu-category">
+            <button class="accordion-menu" data-accordion-btn>
+              <p class="menu-title">Daily Wear</p>
+
+              <div>
+                <ion-icon name="add-outline" class="add-icon"></ion-icon>
+                <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+              </div>
+            </button>
+
+            <ul class="submenu-category-list" data-accordion>
+              <li class="submenu-category">
+                <a href="#" class="submenu-title">Mix Cotton</a>
+              </li>
+
+              <li class="submenu-category">
+                <a href="#" class="submenu-title">Floral Zari</a>
+              </li>
+
+              <li class="submenu-category">
+                <a href="#" class="submenu-title">Half Silk</a>
+              </li>
+
+              <li class="submenu-category">
+                <a href="#" class="submenu-title">Pure Woven</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="menu-category">
+            <a href="#deal" class="menu-title">Hot Offers</a>
+          </li>
+
+          <li class="menu-category">
+            <a href="#blog" class="menu-title">Blog</a>
+          </li>
+
+          
+        </ul>
+
+        <div class="menu-bottom">
+          <ul class="menu-category-list">
+            <li class="menu-category">
+              <button class="accordion-menu" data-accordion-btn>
+                <p class="menu-title">Language</p>
+
+                <ion-icon
+                  name="caret-back-outline"
+                  class="caret-back"
+                ></ion-icon>
+              </button>
+
+              <ul class="submenu-category-list" data-accordion>
+                <li class="submenu-category">
+                  <a href="#" class="submenu-title">English</a>
+                </li>
+
+                <li class="submenu-category">
+                  <a href="#" class="submenu-title">Hindi</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="menu-category">
+              <button class="accordion-menu" data-accordion-btn>
+                <p class="menu-title">Currency</p>
+                <ion-icon
+                  name="caret-back-outline"
+                  class="caret-back"
+                ></ion-icon>
+              </button>
+
+              <ul class="submenu-category-list" data-accordion>
+                <li class="submenu-category">
+                  <a href="#" class="submenu-title">INR &#8377;</a>
+                </li>
+
+                <li class="submenu-category">
+                  <a href="#" class="submenu-title">USD &dollar;</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+
+          <ul class="menu-social-container">
+            <li>
+              <a href="https://www.facebook.com/Er.MARasheed" class="social-link">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="https://twitter.com/Er_MARasheed" class="social-link">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="https://www.instagram.com/er.marasheed" class="social-link">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="https://www.linkedin.com/in/adilrasheedknit/" class="social-link">
+                <ion-icon name="logo-linkedin"></ion-icon>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!--
+    - MAIN
+  -->
+
+    <main>
+      <!--
+      - BANNER
+    -->
+
+      <div class="banner">
+        <div class="container">
+          <div class="slider-container has-scrollbar">
+            <div class="slider-item">
+              <img
+                src="./assets/images/banner-1.webp"
+                alt="saree"
+                class="banner-img"
+              />
+
+              <div class="banner-content">
+                <p class="banner-subtitle">Trending item</p>
+
+                <h2 class="banner-title">Women's latest fashion sale</h2>
+
+                <p class="banner-text">starting at <b>279</b>.00</p>
+
+                <a href="product.html" class="banner-btn">Shop now</a>
+              </div>
+            </div>
+
+            <div class="slider-item">
+              <img
+                src="./assets/images/banner-2.webp"
+                alt="saree"
+                class="banner-img"
+              />
+
+              <div class="banner-content">
+                <p class="banner-subtitle">New Arrival</p>
+
+                <h2 class="banner-title">Modern Silk Saree</h2>
+
+                <p class="banner-text">starting at <b>399</b>.00</p>
+
+                <a href="product.html" class="banner-btn">Shop now</a>
+              </div>
+            </div>
+
+            <div class="slider-item">
+              <img
+                src="./assets/images/banner-3.webp"
+                alt="saree"
+                class="banner-img"
+              />
+
+              <div class="banner-content">
+                <p class="banner-subtitle">Sale Offer</p>
+
+                <h2 class="banner-title">New fashion weekened sale</h2>
+
+                <p class="banner-text">starting at <b>499</b>.00</p>
+
+                <a href="product.html" class="banner-btn">Shop now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--
+      - CATEGORY
+    -->
+    
+      <div class="category">
+        <div class="container">
+          <div class="category-item-container has-scrollbar">
+            <div class="category-item">
+              <div class="category-img-box">
+                <img src="./assets/images/icons/z.svg" alt="saree" width="30" />
+              </div>
+
+              <div class="category-content-box">
+                <div class="category-content-flex">
+                  <h3 class="category-item-title">Zari Work</h3>
+
+                  <p class="category-item-amount">(53)</p>
+                </div>
+
+                <a href="#" class="category-btn">Show all</a>
+              </div>
+            </div>
+
+            <div class="category-item">
+              <div class="category-img-box">
+                <img src="./assets/images/icons/f.svg" alt="saree" width="30" />
+              </div>
+
+              <div class="category-content-box">
+                <div class="category-content-flex">
+                  <h3 class="category-item-title">Floral Cotton</h3>
+
+                  <p class="category-item-amount">(58)</p>
+                </div>
+
+                <a href="#" class="category-btn">Show all</a>
+              </div>
+            </div>
+
+            <div class="category-item">
+              <div class="category-img-box">
+                <img src="./assets/images/icons/e.svg" alt="saree" width="30" />
+              </div>
+
+              <div class="category-content-box">
+                <div class="category-content-flex">
+                  <h3 class="category-item-title">Embroidery</h3>
+
+                  <p class="category-item-amount">(68)</p>
+                </div>
+
+                <a href="#" class="category-btn">Show all</a>
+              </div>
+            </div>
+
+            <div class="category-item">
+              <div class="category-img-box">
+                <img
+                  src="./assets/images/icons/P.svg"
+                  alt="shorts & jeans"
+                  width="30"
+                />
+              </div>
+
+              <div class="category-content-box">
+                <div class="category-content-flex">
+                  <h3 class="category-item-title">Pure Cotton</h3>
+
+                  <p class="category-item-amount">(84)</p>
+                </div>
+
+                <a href="#" class="category-btn">Show all</a>
+              </div>
+            </div>
+
+            <div class="category-item">
+              <div class="category-img-box">
+                <img
+                  src="./assets/images/icons/S.svg"
+                  alt="t-shirts"
+                  width="30"
+                />
+              </div>
+
+              <div class="category-content-box">
+                <div class="category-content-flex">
+                  <h3 class="category-item-title">Silk Cotton</h3>
+
+                  <p class="category-item-amount">(35)</p>
+                </div>
+
+                <a href="#" class="category-btn">Show all</a>
+              </div>
+            </div>
+
+            <div class="category-item">
+              <div class="category-img-box">
+                <img
+                  src="./assets/images/icons/G.svg"
+                  alt="jacket"
+                  width="30"
+                />
+              </div>
+
+              <div class="category-content-box">
+                <div class="category-content-flex">
+                  <h3 class="category-item-title">Georgette</h3>
+
+                  <p class="category-item-amount">(16)</p>
+                </div>
+
+                <a href="#" class="category-btn">Show all</a>
+              </div>
+            </div>
+
+            <div class="category-item">
+              <div class="category-img-box">
+                <img
+                  src="./assets/images/icons/C.svg"
+                  alt="watch"
+                  width="30"
+                />
+              </div>
+
+              <div class="category-content-box">
+                <div class="category-content-flex">
+                  <h3 class="category-item-title">Chiffon</h3>
+
+                  <p class="category-item-amount">(27)</p>
+                </div>
+
+                <a href="#" class="category-btn">Show all</a>
+              </div>
+            </div>
+
+            <div class="category-item">
+              <div class="category-img-box">
+                <img
+                  src="./assets/images/icons/IBA.svg"
+                  alt="hat & caps"
+                  width="30"
+                />
+              </div>
+
+              <div class="category-content-box">
+                <div class="category-content-flex">
+                  <h3 class="category-item-title">Blouse Piece</h3>
+
+                  <p class="category-item-amount">(39)</p>
+                </div>
+
+                <a href="#" class="category-btn">Show all</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--
+      - PRODUCT
+    -->
+    
+      <div class="product-container">
+        <div class="container">
+          <!--
+          - SIDEBAR
+        -->
+
+          <div class="sidebar has-scrollbar" data-mobile-menu>
+            <div class="sidebar-category">
+              <div class="sidebar-top">
+                <h2 class="sidebar-title">Top Brand</h2>
+
+                <button class="sidebar-close-btn" data-mobile-menu-close-btn>
+                  <ion-icon name="close-outline"></ion-icon>
+                </button>
+              </div>
+
+              <ul class="sidebar-menu-category-list">
+                <li class="sidebar-menu-category">
+                  <button class="sidebar-accordion-menu" data-accordion-btn>
+                    <div class="menu-title-flex">
+                      <img
+                        src="./assets/images/icons/mala.svg"
+                        alt="clothes"
+                        width="20"
+                        height="20"
+                        class="menu-title-img"
+                      />
+
+                      <p class="menu-title">Mala Fab</p>
+                    </div>
+
+                    <div>
+                      <ion-icon name="add-outline" class="add-icon"></ion-icon>
+                      <ion-icon
+                        name="remove-outline"
+                        class="remove-icon"
+                      ></ion-icon>
+                    </div>
+                  </button>
+
+                  <ul class="sidebar-submenu-category-list" data-accordion>
+                    <li class="sidebar-submenu-category">
+                      <a href="#" class="sidebar-submenu-title">
+                        <p class="product-name">BANDHANI SAREE</p>
+                        <data value="300" class="stock" title="Available Stock"
+                          >300</data
+                        >
+                      </a>
+                    </li>
+
+                    <li class="sidebar-submenu-category">
+                      <a href="#" class="sidebar-submenu-title">
+                        <p class="product-name">BANARASI SAREE</p>
+                        <data value="60" class="stock" title="Available Stock"
+                          >60</data
+                        >
+                      </a>
+                    </li>
+
+                    <li class="sidebar-submenu-category">
+                      <a href="#" class="sidebar-submenu-title">
+                        <p class="product-name">SILK SAREE</p>
+                        <data value="50" class="stock" title="Available Stock"
+                          >50</data
+                        >
+                      </a>
+                    </li>
+
+                    <li class="sidebar-submenu-category">
+                      <a href="#" class="sidebar-submenu-title">
+                        <p class="product-name">DOLA SILK SAREE</p>
+                        <data value="87" class="stock" title="Available Stock"
+                          >87</data
+                        >
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="sidebar-menu-category">
+                  <button class="sidebar-accordion-menu" data-accordion-btn>
+                    <div class="menu-title-flex">
+                      <img
+                        src="./assets/images/icons/Almas.svg"
+                        alt="footwear"
+                        class="menu-title-img"
+                        width="20"
+                        height="20"
+                      />
+
+                      <p class="menu-title">Almas</p>
+                    </div>
+
+                    <div>
+                      <ion-icon name="add-outline" class="add-icon"></ion-icon>
+                      <ion-icon
+                        name="remove-outline"
+                        class="remove-icon"
+                      ></ion-icon>
+                    </div>
+                  </button>
+
+                  <ul class="sidebar-submenu-category-list" data-accordion>
+                    <li class="sidebar-submenu-category">
+                      <a href="#" class="sidebar-submenu-title">
+                        <p class="product-name">GEORGETTE SAREE</p>
+                        <data value="45" class="stock" title="Available Stock"
+                          >45</data
+                        >
+                      </a>
+                    </li>
+
+                    <li class="sidebar-submenu-category">
+                      <a href="#" class="sidebar-submenu-title">
+                        <p class="product-name">CHIFFON SAREE</p>
+                        <data value="75" class="stock" title="Available Stock"
+                          >75</data
+                        >
+                      </a>
+                    </li>
+
+                    <li class="sidebar-submenu-category">
+                      <a href="#" class="sidebar-submenu-title">
+                        <p class="product-name">LEHERIYA SAREE</p>
+                        <data value="35" class="stock" title="Available Stock"
+                          >35</data
+                        >
+                      </a>
+                    </li>
+
+                    <li class="sidebar-submenu-category">
+                      <a href="#" class="sidebar-submenu-title">
+                        <p class="product-name">KANJEEVARAM SAREE</p>
+                        <data value="26" class="stock" title="Available Stock"
+                          >26</data
+                        >
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="sidebar-menu-category">
+                  <button class="sidebar-accordion-menu" data-accordion-btn>
+                    <div class="menu-title-flex">
+                      <img
+                        src="./assets/images/icons/Atlas.svg"
+                        alt="clothes"
+                        class="menu-title-img"
+                        width="20"
+                        height="20"
+                      />
+
+                      <p class="menu-title">Atlas</p>
+                    </div>
+
+                    <div>
+                      <ion-icon name="add-outline" class="add-icon"></ion-icon>
+                      <ion-icon
+                        name="remove-outline"
+                        class="remove-icon"
+                      ></ion-icon>
+                    </div>
+                  </button>
+
+                  <ul class="sidebar-submenu-category-list" data-accordion>
+                    <li class="sidebar-submenu-category">
+                      <a href="#" class="sidebar-submenu-title">
+                        <p class="product-name">SAMBALPURI SAREE</p>
+                        <data value="46" class="stock" title="Available Stock"
+                          >46</data
+                        >
+                      </a>
+                    </li>
+
+                    <li class="sidebar-submenu-category">
+                      <a href="#" class="sidebar-submenu-title">
+                        <p class="product-name">NET SAREE</p>
+                        <data value="73" class="stock" title="Available Stock"
+                          >73</data
+                        >
+                      </a>
+                    </li>
+
+                    <li class="sidebar-submenu-category">
+                      <a href="#" class="sidebar-submenu-title">
+                        <p class="product-name">PAITHANI SAREE</p>
+                        <data value="61" class="stock" title="Available Stock"
+                          >61</data
+                        >
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="sidebar-menu-category">
+                  <button class="sidebar-accordion-menu" data-accordion-btn>
+                    <div class="menu-title-flex">
+                      <img
+                        src="./assets/images/icons/J&K.svg"
+                        alt="perfume"
+                        class="menu-title-img"
+                        width="20"
+                        height="20"
+                      />
+
+                      <p class="menu-title">J&K</p>
+                    </div>
+
+                    <div>
+                      <ion-icon name="add-outline" class="add-icon"></ion-icon>
+                      <ion-icon
+                        name="remove-outline"
+                        class="remove-icon"
+                      ></ion-icon>
+                    </div>
+                  </button>
+
+                  <ul class="sidebar-submenu-category-list" data-accordion>
+                    <li class="sidebar-submenu-category">
+                      <a href="#" class="sidebar-submenu-title">
+                        <p class="product-name">TUSSAR SILK SAREE</p>
+                        <data value="12" class="stock" title="Available Stock"
+                          >12 pcs</data
+                        >
+                      </a>
+                    </li>
+
+                    <li class="sidebar-submenu-category">
+                      <a href="#" class="sidebar-submenu-title">
+                        <p class="product-name">KOTA DORIA SAREE</p>
+                        <data value="60" class="stock" title="Available Stock"
+                          >60 pcs</data
+                        >
+                      </a>
+                    </li>
+
+                    <li class="sidebar-submenu-category">
+                      <a href="#" class="sidebar-submenu-title">
+                        <p class="product-name">ASSAM SILK SAREE</p>
+                        <data value="50" class="stock" title="Available Stock"
+                          >50 pcs</data
+                        >
+                      </a>
+                    </li>
+
+                    <li class="sidebar-submenu-category">
+                      <a href="#" class="sidebar-submenu-title">
+                        <p class="product-name">MASHRU SAREE</p>
+                        <data value="87" class="stock" title="Available Stock"
+                          >87 pcs</data
+                        >
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="sidebar-menu-category">
+                  <button class="sidebar-accordion-menu" data-accordion-btn>
+                    <div class="menu-title-flex">
+                      <img
+                        src="./assets/images/icons/Kareema.svg"
+                        alt="cosmetics"
+                        class="menu-title-img"
+                        width="20"
+                        height="20"
+                      />
+
+                      <p class="menu-title">Kareema</p>
+                    </div>
+
+                    <div>
+                      <ion-icon name="add-outline" class="add-icon"></ion-icon>
+                      <ion-icon
+                        name="remove-outline"
+                        class="remove-icon"
+                      ></ion-icon>
+                    </div>
+                  </button>
+
+                  <ul class="sidebar-submenu-category-list" data-accordion>
+                    <li class="sidebar-submenu-category">
+                      <a href="#" class="sidebar-submenu-title">
+                        <p class="product-name">IKKAT SAREE</p>
+                        <data value="68" class="stock" title="Available Stock"
+                          >68</data
+                        >
+                      </a>
+                    </li>
+
+                    <li class="sidebar-submenu-category">
+                      <a href="#" class="sidebar-submenu-title">
+                        <p class="product-name">TAANT SAREE</p>
+                        <data value="46" class="stock" title="Available Stock"
+                          >46</data
+                        >
+                      </a>
+                    </li>
+
+                    <li class="sidebar-submenu-category">
+                      <a href="#" class="sidebar-submenu-title">
+                        <p class="product-name">PATOLA SAREE</p>
+                        <data value="79" class="stock" title="Available Stock"
+                          >79</data
+                        >
+                      </a>
+                    </li>
+
+                    <li class="sidebar-submenu-category">
+                      <a href="#" class="sidebar-submenu-title">
+                        <p class="product-name">KASHMIRI SAREE</p>
+                        <data value="23" class="stock" title="Available Stock"
+                          >23</data
+                        >
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="sidebar-menu-category">
+                  <button class="sidebar-accordion-menu" data-accordion-btn>
+                    <div class="menu-title-flex">
+                      <img
+                        src="./assets/images/icons/chaman.svg"
+                        alt="glasses"
+                        class="menu-title-img"
+                        width="20"
+                        height="20"
+                      />
+
+                      <p class="menu-title">Chaman</p>
+                    </div>
+
+                    <div>
+                      <ion-icon name="add-outline" class="add-icon"></ion-icon>
+                      <ion-icon
+                        name="remove-outline"
+                        class="remove-icon"
+                      ></ion-icon>
+                    </div>
+                  </button>
+
+                  <ul class="sidebar-submenu-category-list" data-accordion>
+                    <li class="sidebar-submenu-category">
+                      <a href="#" class="sidebar-submenu-title">
+                        <p class="product-name">BALUCHARI SAREE</p>
+                        <data value="50" class="stock" title="Available Stock"
+                          >50</data
+                        >
+                      </a>
+                    </li>
+
+                    <li class="sidebar-submenu-category">
+                      <a href="#" class="sidebar-submenu-title">
+                        <p class="product-name">UPPADA SAREE</p>
+                        <data value="48" class="stock" title="Available Stock"
+                          >48</data
+                        >
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="sidebar-menu-category">
+                  <button class="sidebar-accordion-menu" data-accordion-btn>
+                    <div class="menu-title-flex">
+                      <img
+                        src="./assets/images/icons/IBA.svg"
+                        alt="bags"
+                        class="menu-title-img"
+                        width="20"
+                        height="20"
+                      />
+
+                      <p class="menu-title">IBA</p>
+                    </div>
+
+                    <div>
+                      <ion-icon name="add-outline" class="add-icon"></ion-icon>
+                      <ion-icon
+                        name="remove-outline"
+                        class="remove-icon"
+                      ></ion-icon>
+                    </div>
+                  </button>
+
+                  <ul class="sidebar-submenu-category-list" data-accordion>
+                    <li class="sidebar-submenu-category">
+                      <a href="#" class="sidebar-submenu-title">
+                        <p class="product-name">GADWAL SAREE</p>
+                        <data value="62" class="stock" title="Available Stock"
+                          >62</data
+                        >
+                      </a>
+                    </li>
+
+                    <li class="sidebar-submenu-category">
+                      <a href="#" class="sidebar-submenu-title">
+                        <p class="product-name">COORGI SAREE</p>
+                        <data value="35" class="stock" title="Available Stock"
+                          >35</data
+                        >
+                      </a>
+                    </li>
+
+                    <li class="sidebar-submenu-category">
+                      <a href="#" class="sidebar-submenu-title">
+                        <p class="product-name">MANGALGIRI SAREE</p>
+                        <data value="80" class="stock" title="Available Stock"
+                          >80</data
+                        >
+                      </a>
+                    </li>
+
+                    <li class="sidebar-submenu-category">
+                      <a href="#" class="sidebar-submenu-title">
+                        <p class="product-name">VENKATAGIRI SAREE</p>
+                        <data value="75" class="stock" title="Available Stock"
+                          >75</data
+                        >
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+
+            <div class="product-showcase">
+              <h3 class="showcase-heading">best sellers</h3>
+
+              <div class="showcase-wrapper">
+                <div class="showcase-container">
+                  <div class="showcase">
+                    <a href="#" class="showcase-img-box">
+                      <img
+                        src="./assets/images/products/1.webp"
+                        alt="baby fabric shoes"
+                        width="75"
+                        height="75"
+                        class="showcase-img"
+                      />
+                    </a>
+
+                    <div class="showcase-content">
+                      <a href="product.html">
+                        <h4 class="showcase-title">Mix Cotton saree</h4>
+                      </a>
+
+                      <div class="showcase-rating">
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                      </div>
+
+                      <div class="price-box">
+                        <del>999.00</del>
+                        <p class="price">699.00</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="showcase">
+                    <a href="#" class="showcase-img-box">
+                      <img
+                        src="./assets/images/products/2.webp"
+                        alt="men's hoodies t-shirt"
+                        class="showcase-img"
+                        width="75"
+                        height="75"
+                      />
+                    </a>
+
+                    <div class="showcase-content">
+                      <a href="product.html">
+                        <h4 class="showcase-title">Pure Silk saree</h4>
+                      </a>
+                      <div class="showcase-rating">
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star-half-outline"></ion-icon>
+                      </div>
+
+                      <div class="price-box">
+                        <del>799.00</del>
+                        <p class="price">499.00</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="showcase">
+                    <a href="#" class="showcase-img-box">
+                      <img
+                        src="./assets/images/products/3.webp"
+                        alt="girls t-shirt"
+                        class="showcase-img"
+                        width="75"
+                        height="75"
+                      />
+                    </a>
+
+                    <div class="showcase-content">
+                      <a href="product.html">
+                        <h4 class="showcase-title">Woven with Gold zari</h4>
+                      </a>
+                      <div class="showcase-rating">
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star-half-outline"></ion-icon>
+                      </div>
+
+                      <div class="price-box">
+                        <del>690.00</del>
+                        <p class="price">479.00</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="showcase">
+                    <a href="#" class="showcase-img-box">
+                      <img
+                        src="./assets/images/products/4.webp"
+                        alt="woolen hat for men"
+                        class="showcase-img"
+                        width="75"
+                        height="75"
+                      />
+                    </a>
+
+                    <div class="showcase-content">
+                      <a href="product.html">
+                        <h4 class="showcase-title">Mix Chiffon with zari</h4>
+                      </a>
+                      <div class="showcase-rating">
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                      </div>
+
+                      <div class="price-box">
+                        <del>602.00</del>
+                        <p class="price">430.00</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-box">
+            <!--
+            - PRODUCT MINIMAL
+          -->
+          <div id="Arrival">
+            <div class="product-minimal">
+              <div class="product-showcase">
+                <h2 class="title">New Arrivals</h2>
+
+                <div class="showcase-wrapper has-scrollbar">
+                  <div class="showcase-container">
+                    <div class="showcase">
+                      <a href="#" class="showcase-img-box">
+                        <img
+                          src="./assets/images/products/5.webp"
+                          alt="saree"
+                          width="70"
+                          class="showcase-img"
+                        />
+                      </a>
+
+                      <div class="showcase-content">
+                        <a href="#">
+                          <h4 class="showcase-title">New Hot Black Chiffon Saree</h4>
+                        </a>
+
+                        <a href="#" class="showcase-category">Chiffon</a>
+
+                        <div class="price-box">
+                          <p class="price">699.00</p>
+                          <del>999.00</del>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="showcase">
+                      <a href="#" class="showcase-img-box">
+                        <img
+                          src="./assets/images/products/6.webp"
+                          alt="saree"
+                          class="showcase-img"
+                          width="70"
+                        />
+                      </a>
+
+                      <div class="showcase-content">
+                        <a href="#">
+                          <h4 class="showcase-title">
+                            Dark Yellow New Chiffon Saree
+                          </h4>
+                        </a>
+
+                        <a href="#" class="showcase-category">Chiffon</a>
+
+                        <div class="price-box">
+                          <p class="price">410.00</p>
+                          <del>570.00</del>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="showcase">
+                      <a href="#" class="showcase-img-box">
+                        <img
+                          src="./assets/images/products/7.webp"
+                          alt="saree"
+                          class="showcase-img"
+                          width="70"
+                        />
+                      </a>
+
+                      <div class="showcase-content">
+                        <a href="#">
+                          <h4 class="showcase-title">
+                            Trendy White Floral Chiffon Saree
+                          </h4>
+                        </a>
+
+                        <a href="#" class="showcase-category">Chiffon</a>
+
+                        <div class="price-box">
+                          <p class="price">430.00</p>
+                          <del>550.00</del>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="showcase">
+                      <a href="#" class="showcase-img-box">
+                        <img
+                          src="./assets/images/products/8.webp"
+                          alt="saree"
+                          class="showcase-img"
+                          width="70"
+                        />
+                      </a>
+
+                      <div class="showcase-content">
+                        <a href="#">
+                          <h4 class="showcase-title">Kesariya Pure Chiffon Saree</h4>
+                        </a>
+
+                        <a href="#" class="showcase-category">Chiffon</a>
+
+                        <div class="price-box">
+                          <p class="price">440.00</p>
+                          <del>690.00</del>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="showcase-container">
+                    <div class="showcase">
+                      <a href="#" class="showcase-img-box">
+                        <img
+                          src="./assets/images/products/9.webp"
+                          alt="saree"
+                          class="showcase-img"
+                          width="70"
+                        />
+                      </a>
+
+                      <div class="showcase-content">
+                        <a href="#">
+                          <h4 class="showcase-title">Multi-color georgette Saree</h4>
+                        </a>
+
+                        <a href="#" class="showcase-category">Georgette</a>
+
+                        <div class="price-box">
+                          <p class="price">320.00</p>
+                          <del>450.00</del>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="showcase">
+                      <a href="#" class="showcase-img-box">
+                        <img
+                          src="./assets/images/products/10.webp"
+                          alt="saree"
+                          class="showcase-img"
+                          width="70"
+                        />
+                      </a>
+
+                      <div class="showcase-content">
+                        <a href="#">
+                          <h4 class="showcase-title">
+                            Light yellow Winter Wear Saree
+                          </h4>
+                        </a>
+
+                        <a href="#" class="showcase-category">Georgette</a>
+
+                        <div class="price-box">
+                          <p class="price">299.00</p>
+                          <del>479.00</del>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="showcase">
+                      <a href="#" class="showcase-img-box">
+                        <img
+                          src="./assets/images/products/11.webp"
+                          alt="saree"
+                          class="showcase-img"
+                          width="70"
+                        />
+                      </a>
+
+                      <div class="showcase-content">
+                        <a href="#">
+                          <h4 class="showcase-title">
+                            Light Blue Georgette Saree
+                          </h4>
+                        </a>
+
+                        <a href="#" class="showcase-category">Georgette</a>
+
+                        <div class="price-box">
+                          <p class="price">329.00</p>
+                          <del>449.00</del>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="showcase">
+                      <a href="#" class="showcase-img-box">
+                        <img
+                          src="./assets/images/products/12.webp"
+                          alt="saree"
+                          class="showcase-img"
+                          width="70"
+                        />
+                      </a>
+
+                      <div class="showcase-content">
+                        <a href="#">
+                          <h4 class="showcase-title">
+                            Printed Daily Wear Georgette Saree
+                          </h4>
+                        </a>
+
+                        <a href="#" class="showcase-category">Georgette</a>
+
+                        <div class="price-box">
+                          <p class="price">279.00</p>
+                          <del>390.00</del>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="product-showcase">
+                <h2 class="title">Trending</h2>
+
+                <div class="showcase-wrapper has-scrollbar">
+                  <div class="showcase-container">
+                    <div class="showcase">
+                      <a href="#" class="showcase-img-box">
+                        <img
+                          src="./assets/images/products/13.webp"
+                          alt="saree"
+                          class="showcase-img"
+                          width="70"
+                        />
+                      </a>
+
+                      <div class="showcase-content">
+                        <a href="#">
+                          <h4 class="showcase-title">
+                            Full Buta Mix Cotton Saree
+                          </h4>
+                        </a>
+
+                        <a href="#" class="showcase-category">Cotton</a>
+
+                        <div class="price-box">
+                          <p class="price">550.00</p>
+                          <del>840.00</del>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="showcase">
+                      <a href="#" class="showcase-img-box">
+                        <img
+                          src="./assets/images/products/14.webp"
+                          alt="saree"
+                          class="showcase-img"
+                          width="70"
+                        />
+                      </a>
+
+                      <div class="showcase-content">
+                        <a href="#">
+                          <h4 class="showcase-title">
+                            New Trendy Look Cotton Saree
+                          </h4>
+                        </a>
+
+                        <a href="#" class="showcase-category">Cotton</a>
+
+                        <div class="price-box">
+                          <p class="price">670.00</p>
+                          <del>1499.00</del>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="showcase">
+                      <a href="#" class="showcase-img-box">
+                        <img
+                          src="./assets/images/products/15.webp"
+                          alt="saree"
+                          class="showcase-img"
+                          width="70"
+                        />
+                      </a>
+
+                      <div class="showcase-content">
+                        <a href="#">
+                          <h4 class="showcase-title">
+                            Womens Party Wear Cotton Saree
+                          </h4>
+                        </a>
+
+                        <a href="#" class="showcase-category">Cotton</a>
+
+                        <div class="price-box">
+                          <p class="price">810.00</p>
+                          <del>880.00</del>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="showcase">
+                      <a href="#" class="showcase-img-box">
+                        <img
+                          src="./assets/images/products/16.webp"
+                          alt="saree"
+                          class="showcase-img"
+                          width="70"
+                        />
+                      </a>
+
+                      <div class="showcase-content">
+                        <a href="#">
+                          <h4 class="showcase-title">
+                            Light Green with Blouse Piece
+                          </h4>
+                        </a>
+
+                        <a href="#" class="showcase-category">Cotton</a>
+
+                        <div class="price-box">
+                          <p class="price">650.00</p>
+                          <del>1650.00</del>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="showcase-container">
+                    <div class="showcase">
+                      <a href="#" class="showcase-img-box">
+                        <img
+                          src="./assets/images/products/17.webp"
+                          alt="saree"
+                          class="showcase-img"
+                          width="70"
+                        />
+                      </a>
+
+                      <div class="showcase-content">
+                        <a href="#">
+                          <h4 class="showcase-title">
+                            Latest Banarasi Silk Saree
+                          </h4>
+                        </a>
+
+                        <a href="#" class="showcase-category">Silk</a>
+
+                        <div class="price-box">
+                          <p class="price">579.00</p>
+                          <del>799.00</del>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="showcase">
+                      <a href="#" class="showcase-img-box">
+                        <img
+                          src="./assets/images/products/18.webp"
+                          alt="saree"
+                          class="showcase-img"
+                          width="70"
+                        />
+                      </a>
+
+                      <div class="showcase-content">
+                        <a href="#">
+                          <h4 class="showcase-title">Dark Blue Silk Saree</h4>
+                        </a>
+
+                        <a href="#" class="showcase-category">Silk</a>
+
+                        <div class="price-box">
+                          <p class="price">870.00</p>
+                          <del>1430.00</del>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="showcase">
+                      <a href="#" class="showcase-img-box">
+                        <img
+                          src="./assets/images/products/19.webp"
+                          alt="saree"
+                          class="showcase-img"
+                          width="70"
+                        />
+                      </a>
+
+                      <div class="showcase-content">
+                        <a href="#">
+                          <h4 class="showcase-title">
+                            Pure Red Attractive Silk Saree
+                          </h4>
+                        </a>
+
+                        <a href="#" class="showcase-category">Silk</a>
+
+                        <div class="price-box">
+                          <p class="price">560.00</p>
+                          <del>780.00</del>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="showcase">
+                      <a href="#" class="showcase-img-box">
+                        <img
+                          src="./assets/images/products/20.webp"
+                          alt="saree"
+                          class="showcase-img"
+                          width="70"
+                        />
+                      </a>
+
+                      <div class="showcase-content">
+                        <a href="#">
+                          <h4 class="showcase-title">
+                            Casual Wear with Gold Zari Saree
+                          </h4>
+                        </a>
+
+                        <a href="#" class="showcase-category">Silk</a>
+
+                        <div class="price-box">
+                          <p class="price">750.00</p>
+                          <del>1500.00</del>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="product-showcase">
+                <h2 class="title">Top Rated</h2>
+
+                <div class="showcase-wrapper has-scrollbar">
+                  <div class="showcase-container">
+                    <div class="showcase">
+                      <a href="#" class="showcase-img-box">
+                        <img
+                          src="./assets/images/products/21.webp"
+                          alt="saree"
+                          class="showcase-img"
+                          width="70"
+                        />
+                      </a>
+
+                      <div class="showcase-content">
+                        <a href="#">
+                          <h4 class="showcase-title">
+                            Party Wear Woven Saree
+                          </h4>
+                        </a>
+
+                        <a href="#" class="showcase-category">Woven</a>
+
+                        <div class="price-box">
+                          <p class="price">950.00</p>
+                          <del>1340.00</del>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="showcase">
+                      <a href="#" class="showcase-img-box">
+                        <img
+                          src="./assets/images/products/22.webp"
+                          alt="saree"
+                          class="showcase-img"
+                          width="70"
+                        />
+                      </a>
+
+                      <div class="showcase-content">
+                        <a href="#">
+                          <h4 class="showcase-title">
+                            Daily Wear Woven Saree
+                          </h4>
+                        </a>
+
+                        <a href="#" class="showcase-category">Silk Woven</a>
+
+                        <div class="price-box">
+                          <p class="price">840.00</p>
+                          <del>1130.00</del>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="showcase">
+                      <a href="#" class="showcase-img-box">
+                        <img
+                          src="./assets/images/products/23.webp"
+                          alt="saree"
+                          class="showcase-img"
+                          width="70"
+                        />
+                      </a>
+
+                      <div class="showcase-content">
+                        <a href="#">
+                          <h4 class="showcase-title">
+                            Yellow and Red Mix Color Silk Saree
+                          </h4>
+                        </a>
+
+                        <a href="#" class="showcase-category">Silk</a>
+
+                        <div class="price-box">
+                          <p class="price">420.00</p>
+                          <del>930.00</del>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="showcase">
+                      <a href="#" class="showcase-img-box">
+                        <img
+                          src="./assets/images/products/24.webp"
+                          alt="saree"
+                          class="showcase-img"
+                          width="70"
+                        />
+                      </a>
+
+                      <div class="showcase-content">
+                        <a href="#">
+                          <h4 class="showcase-title">
+                            Silver Color Mix Cotton and Silk Saree
+                          </h4>
+                        </a>
+
+                        <a href="#" class="showcase-category">Mix Cotton</a>
+
+                        <div class="price-box">
+                          <p class="price">400.00</p>
+                          <del>600.00</del>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="showcase-container">
+                    <div class="showcase">
+                      <a href="#" class="showcase-img-box">
+                        <img
+                          src="./assets/images/products/25.webp"
+                          alt="saree"
+                          class="showcase-img"
+                          width="70"
+                        />
+                      </a>
+
+                      <div class="showcase-content">
+                        <a href="#">
+                          <h4 class="showcase-title">
+                            White Floral for Festive Seasion
+                          </h4>
+                        </a>
+
+                        <a href="#" class="showcase-category">Chiffon</a>
+
+                        <div class="price-box">
+                          <p class="price">620.00</p>
+                          <del>855.00</del>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="showcase">
+                      <a href="#" class="showcase-img-box">
+                        <img
+                          src="./assets/images/products/26.webp"
+                          alt="saree"
+                          class="showcase-img"
+                          width="70"
+                        />
+                      </a>
+
+                      <div class="showcase-content">
+                        <a href="#">
+                          <h4 class="showcase-title">
+                            Neavy Blue and Pink Cotton Saree
+                          </h4>
+                        </a>
+
+                        <a href="#" class="showcase-category">Cotton</a>
+
+                        <div class="price-box">
+                          <p class="price">560.00</p>
+                          <del>780.00</del>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="showcase">
+                      <a href="#" class="showcase-img-box">
+                        <img
+                          src="./assets/images/products/27.webp"
+                          alt="saree"
+                          class="showcase-img"
+                          width="70"
+                        />
+                      </a>
+
+                      <div class="showcase-content">
+                        <a href="#">
+                          <h4 class="showcase-title">
+                            ZedGreen with Embroidery
+                          </h4>
+                        </a>
+
+                        <a href="#" class="showcase-category">Silk</a>
+
+                        <div class="price-box">
+                          <p class="price">1200.00</p>
+                          <del>1300.00</del>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="showcase">
+                      <a href="#" class="showcase-img-box">
+                        <img
+                          src="./assets/images/products/28.webp"
+                          alt="saree"
+                          class="showcase-img"
+                          width="70"
+                        />
+                      </a>
+
+                      <div class="showcase-content">
+                        <a href="#">
+                          <h4 class="showcase-title">
+                            New Banarasi Chiffon Saree
+                          </h4>
+                        </a>
+
+                        <a href="#" class="showcase-category">Chiffon</a>
+
+                        <div class="price-box">
+                          <p class="price">520.00</p>
+                          <del>630.00</del>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+            <!--
+            - PRODUCT FEATURED
+          -->
+            <div id="deal">
+              <div class="product-featured">
+                <h2 class="title">Deal of the day</h2>
+
+                <div class="showcase-wrapper has-scrollbar">
+                  <div class="showcase-container">
+                    <div class="showcase">
+                      <div class="showcase-banner">
+                        <img
+                          src="./assets/images/products/deal.webp"
+                          alt="saree-image"
+                          class="showcase-img"
+                        />
+                      </div>
+
+                      <div class="showcase-content">
+                        <div class="showcase-rating">
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star-outline"></ion-icon>
+                          <ion-icon name="star-outline"></ion-icon>
+                        </div>
+
+                        
+                          <h3 class="showcase-title">Gold Zari Silk Saree</h3>
+                        
+
+                        <p class="showcase-desc">
+                          Women's Banarasi Silk Saree Soft new ladies 2023
+                          Design Wear Pattu Saree With Blouse Piece for Wedding
+                          sadi (SAM SAN EAGLE-3)
+                        </p>
+
+                        <div class="price-box">
+                          <p class="price">449.00</p>
+
+                          <del>699.00</del>
+                        </div>
+                        <a href="product.html">
+                        <button class="add-cart-btn">show deal</button>
+                      </a>
+
+                        <div class="showcase-status">
+                          <div class="wrapper">
+                            <p>already sold: <b>20</b></p>
+
+                            <p>available: <b>40</b></p>
+                          </div>
+
+                          <div class="showcase-status-bar"></div>
+                        </div>
+
+                        <div class="countdown-box">
+                          <p class="countdown-desc">Hurry Up! Offer ends in:</p>
+
+                          <div class="countdown">
+                            <div class="countdown-content">
+                              <p class="display-number">2</p>
+
+                              <p class="display-text">Days</p>
+                            </div>
+
+                            <div class="countdown-content">
+                              <p class="display-number">23</p>
+                              <p class="display-text">Hours</p>
+                            </div>
+
+                            <div class="countdown-content">
+                              <p class="display-number">45</p>
+                              <p class="display-text">Min</p>
+                            </div>
+
+                            <div class="countdown-content">
+                              <p class="display-number">00</p>
+                              <p class="display-text">Sec</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="showcase-container">
+                    <div class="showcase">
+                      <div class="showcase-banner">
+                        <img
+                          src="./assets/images/products/deal2.webp"
+                          alt="silk saree"
+                          class="showcase-img"
+                        />
+                      </div>
+
+                      <div class="showcase-content">
+                        <div class="showcase-rating">
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star-outline"></ion-icon>
+                          <ion-icon name="star-outline"></ion-icon>
+                        </div>
+
+                        <h3 class="showcase-title">Banarasi Silk Sare</h3>
+
+                        <p class="showcase-desc">
+                          Pandadi Saree Women's Banarasi Silk Saree With
+                          Unstitched Blouse Piece
+                        </p>
+
+                        <div class="price-box">
+                          <p class="price">499.00</p>
+                          <del>799.00</del>
+                        </div>
+                        <a href="product.html">                      
+                        <button class="add-cart-btn">show deal</button>
+                      </a>
+
+                        <div class="showcase-status">
+                          <div class="wrapper">
+                            <p>already sold: <b>15</b></p>
+
+                            <p>available: <b>40</b></p>
+                          </div>
+
+                          <div class="showcase-status-bar"></div>
+                        </div>
+
+                        <div class="countdown-box">
+                          <p class="countdown-desc">Hurry Up! Offer ends in:</p>
+
+                          <div class="countdown">
+                            <div class="countdown-content">
+                              <p class="display-number">2</p>
+                              <p class="display-text">Days</p>
+                            </div>
+
+                            <div class="countdown-content">
+                              <p class="display-number">23</p>
+                              <p class="display-text">Hours</p>
+                            </div>
+
+                            <div class="countdown-content">
+                              <p class="display-number">45</p>
+                              <p class="display-text">Min</p>
+                            </div>
+
+                            <div class="countdown-content">
+                              <p class="display-number">00</p>
+                              <p class="display-text">Sec</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--
+            - PRODUCT GRID
+          -->
+          <div id="Products">
+            <div class="product-main">
+              <h2 class="title">New Products</h2>
+
+              <div class="product-grid">
+                <div class="showcase">
+                  <div class="showcase-banner">
+                    <img
+                      src="./assets/images/products/p-1.webp"
+                      alt="saree"
+                      width="300"
+                      class="product-img default"
+                    />
+                    <img
+                      src="./assets/images/products/p-2.webp"
+                      alt="saree"
+                      width="300"
+                      class="product-img hover"
+                    />
+
+                    <p class="showcase-badge">50%</p>
+
+                    <div class="showcase-actions">
+                      <button class="btn-action">
+                        <ion-icon name="heart-outline"></ion-icon>
+                      </button>
+
+                      <button class="btn-action">
+                        <ion-icon name="eye-outline"></ion-icon>
+                      </button>
+
+                      <button class="btn-action">
+                        <ion-icon name="repeat-outline"></ion-icon>
+                      </button>
+
+                      <button class="btn-action">
+                        <ion-icon name="bag-add-outline"></ion-icon>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="showcase-content">
+                    <p class="showcase-category">Ajooba</p>
+
+                    <a href="product.html">
+                      <h3 class="showcase-title">
+                        Women's Banarasi Silk Saree
+                      </h3>
+                    </a>
+
+                    <div class="showcase-rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star-outline"></ion-icon>
+                      <ion-icon name="star-outline"></ion-icon>
+                    </div>
+
+                    <div class="price-box">
+                      <p class="price">599.00</p>
+                      <del>1199.00</del>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="showcase">
+                  <div class="showcase-banner">
+                    <img
+                      src="./assets/images/products/p-3.webp"
+                      alt="saree"
+                      class="product-img default"
+                      width="300"
+                    />
+                    <img
+                      src="./assets/images/products/p-4.webp"
+                      alt="saree"
+                      class="product-img hover"
+                      width="300"
+                    />
+
+                    <p class="showcase-badge angle black">sale</p>
+
+                    <div class="showcase-actions">
+                      <button class="btn-action">
+                        <ion-icon name="heart-outline"></ion-icon>
+                      </button>
+
+                      <button class="btn-action">
+                        <ion-icon name="eye-outline"></ion-icon>
+                      </button>
+
+                      <button class="btn-action">
+                        <ion-icon name="repeat-outline"></ion-icon>
+                      </button>
+
+                      <button class="btn-action">
+                        <ion-icon name="bag-add-outline"></ion-icon>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="showcase-content">
+                    <p class="showcase-category">Atlas</p>
+
+                    <h3>
+                      <a href="product.html" class="showcase-title"
+                        >Art Silk Saree With Blouse Piece</a
+                      >
+                    </h3>
+
+                    <div class="showcase-rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star-outline"></ion-icon>
+                      <ion-icon name="star-outline"></ion-icon>
+                    </div>
+
+                    <div class="price-box">
+                      <p class="price">999.00</p>
+                      <del>1499.00</del>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="showcase">
+                  <div class="showcase-banner">
+                    <img
+                      src="./assets/images/products/p-5.webp"
+                      alt="saree"
+                      class="product-img default"
+                      width="300"
+                    />
+                    <img
+                      src="./assets/images/products/p-6.webp"
+                      alt="saree"
+                      class="product-img hover"
+                      width="300"
+                    />
+
+                    <div class="showcase-actions">
+                      <button class="btn-action">
+                        <ion-icon name="heart-outline"></ion-icon>
+                      </button>
+
+                      <button class="btn-action">
+                        <ion-icon name="eye-outline"></ion-icon>
+                      </button>
+
+                      <button class="btn-action">
+                        <ion-icon name="repeat-outline"></ion-icon>
+                      </button>
+
+                      <button class="btn-action">
+                        <ion-icon name="bag-add-outline"></ion-icon>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="showcase-content">
+                    <p class="showcase-category">Almas</p>
+
+                    <h3>
+                      <a href="product.html" class="showcase-title"
+                        >Woven Silk Saree with Silver Zari</a
+                      >
+                    </h3>
+
+                    <div class="showcase-rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star-outline"></ion-icon>
+                      <ion-icon name="star-outline"></ion-icon>
+                    </div>
+
+                    <div class="price-box">
+                      <p class="price">749.00</p>
+                      <del>1650.00</del>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="showcase">
+                  <div class="showcase-banner">
+                    <img
+                      src="./assets/images/products/p-7.webp"
+                      alt="saree"
+                      class="product-img default"
+                      width="300"
+                    />
+                    <img
+                      src="./assets/images/products/p-8.webp"
+                      alt="saree"
+                      class="product-img hover"
+                      width="300"
+                    />
+
+                    <p class="showcase-badge angle pink">new</p>
+
+                    <div class="showcase-actions">
+                      <button class="btn-action">
+                        <ion-icon name="heart-outline"></ion-icon>
+                      </button>
+
+                      <button class="btn-action">
+                        <ion-icon name="eye-outline"></ion-icon>
+                      </button>
+
+                      <button class="btn-action">
+                        <ion-icon name="repeat-outline"></ion-icon>
+                      </button>
+
+                      <button class="btn-action">
+                        <ion-icon name="bag-add-outline"></ion-icon>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="showcase-content">
+                    <p class="showcase-category">Ethic Junction</p>
+
+                    <h3>
+                      <a href="product.html" class="showcase-title"
+                        >Silk Blend Saree With Blouse Piece</a
+                      >
+                    </h3>
+
+                    <div class="showcase-rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                    </div>
+
+                    <div class="price-box">
+                      <p class="price">1299.00</p>
+                      <del>2499.00</del>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="showcase">
+                  <div class="showcase-banner">
+                    <img
+                      src="./assets/images/products/p-9.webp"
+                      alt="saree"
+                      class="product-img default"
+                      width="300"
+                    />
+                    <img
+                      src="./assets/images/products/p-10.webp"
+                      alt="saree"
+                      class="product-img hover"
+                      width="300"
+                    />
+
+                    <div class="showcase-actions">
+                      <button class="btn-action">
+                        <ion-icon name="heart-outline"></ion-icon>
+                      </button>
+
+                      <button class="btn-action">
+                        <ion-icon name="eye-outline"></ion-icon>
+                      </button>
+
+                      <button class="btn-action">
+                        <ion-icon name="repeat-outline"></ion-icon>
+                      </button>
+
+                      <button class="btn-action">
+                        <ion-icon name="bag-add-outline"></ion-icon>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="showcase-content">
+                    <p class="showcase-category">Mala fab</p>
+
+                    <h3>
+                      <a href="product.html" class="showcase-title"
+                        >Party Wear Woven saree</a
+                      >
+                    </h3>
+
+                    <div class="showcase-rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                    </div>
+
+                    <div class="price-box">
+                      <p class="price">999.00</p>
+                      <del>1499.00</del>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="showcase">
+                  <div class="showcase-banner">
+                    <img
+                      src="./assets/images/products/p-11.webp"
+                      alt="saree"
+                      class="product-img default"
+                      width="300"
+                    />
+                    <img
+                      src="./assets/images/products/p-12.webp"
+                      alt="saree"
+                      class="product-img hover"
+                      width="300"
+                    />
+
+                    <p class="showcase-badge angle black">sale</p>
+
+                    <div class="showcase-actions">
+                      <button class="btn-action">
+                        <ion-icon name="heart-outline"></ion-icon>
+                      </button>
+
+                      <button class="btn-action">
+                        <ion-icon name="eye-outline"></ion-icon>
+                      </button>
+
+                      <button class="btn-action">
+                        <ion-icon name="repeat-outline"></ion-icon>
+                      </button>
+
+                      <button class="btn-action">
+                        <ion-icon name="bag-add-outline"></ion-icon>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="showcase-content">
+                    <p class="showcase-category">J&K</p>
+
+                    <h3>
+                      <a href="product.html" class="showcase-title"
+                        >Pure Cotton saree with blouse</a
+                      >
+                    </h3>
+
+                    <div class="showcase-rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star-outline"></ion-icon>
+                      <ion-icon name="star-outline"></ion-icon>
+                    </div>
+
+                    <div class="price-box">
+                      <p class="price">1150.00</p>
+                      <del>1750.00</del>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="showcase">
+                  <div class="showcase-banner">
+                    <img
+                      src="./assets/images/products/p-13.webp"
+                      alt="saree"
+                      class="product-img default"
+                      width="300"
+                    />
+                    <img
+                      src="./assets/images/products/p-14.webp"
+                      alt="saree"
+                      class="product-img hover"
+                      width="300"
+                    />
+
+                    <div class="showcase-actions">
+                      <button class="btn-action">
+                        <ion-icon name="heart-outline"></ion-icon>
+                      </button>
+
+                      <button class="btn-action">
+                        <ion-icon name="eye-outline"></ion-icon>
+                      </button>
+
+                      <button class="btn-action">
+                        <ion-icon name="repeat-outline"></ion-icon>
+                      </button>
+
+                      <button class="btn-action">
+                        <ion-icon name="bag-add-outline"></ion-icon>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="showcase-content">
+                    <p class="showcase-category">Kareema</p>
+
+                    <h3>
+                      <a href="product.html" class="showcase-title"
+                        >Gold saree full booti saree</a
+                      >
+                    </h3>
+
+                    <div class="showcase-rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star-outline"></ion-icon>
+                    </div>
+
+                    <div class="price-box">
+                      <p class="price">1000.00</p>
+                      <del>1200.00</del>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="showcase">
+                  <div class="showcase-banner">
+                    <img
+                      src="./assets/images/products/p-15.webp"
+                      alt="saree"
+                      class="product-img default"
+                      width="300"
+                    />
+                    <img
+                      src="./assets/images/products/p-16.webp"
+                      alt="saree"
+                      class="product-img hover"
+                      width="300"
+                    />
+
+                    <p class="showcase-badge angle black">sale</p>
+
+                    <div class="showcase-actions">
+                      <button class="btn-action">
+                        <ion-icon name="heart-outline"></ion-icon>
+                      </button>
+
+                      <button class="btn-action">
+                        <ion-icon name="eye-outline"></ion-icon>
+                      </button>
+
+                      <button class="btn-action">
+                        <ion-icon name="repeat-outline"></ion-icon>
+                      </button>
+
+                      <button class="btn-action">
+                        <ion-icon name="bag-add-outline"></ion-icon>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="showcase-content">
+                    <p class="showcase-category">Chaman</p>
+
+                    <h3>
+                      <a href="product.html" class="showcase-title"
+                        >Charcol Black woven saree</a
+                      >
+                    </h3>
+
+                    <div class="showcase-rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star-outline"></ion-icon>
+                      <ion-icon name="star-outline"></ion-icon>
+                    </div>
+
+                    <div class="price-box">
+                      <p class="price">1250.00</p>
+                      <del>3000.00</del>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="showcase">
+                  <div class="showcase-banner">
+                    <img
+                      src="./assets/images/products/p-17.webp"
+                      alt="saree"
+                      class="product-img default"
+                      width="300"
+                    />
+                    <img
+                      src="./assets/images/products/p-18.webp"
+                      alt="saree"
+                      class="product-img hover"
+                      width="300"
+                    />
+
+                    <div class="showcase-actions">
+                      <button class="btn-action">
+                        <ion-icon name="heart-outline"></ion-icon>
+                      </button>
+
+                      <button class="btn-action">
+                        <ion-icon name="eye-outline"></ion-icon>
+                      </button>
+
+                      <button class="btn-action">
+                        <ion-icon name="repeat-outline"></ion-icon>
+                      </button>
+
+                      <button class="btn-action">
+                        <ion-icon name="bag-add-outline"></ion-icon>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="showcase-content">
+                    <p class="showcase-category">IBA</p>
+
+                    <h3>
+                      <a href="product.html" class="showcase-title"
+                        >Pure Silk with Silver Zari</a
+                      >
+                    </h3>
+
+                    <div class="showcase-rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star-outline"></ion-icon>
+                    </div>
+
+                    <div class="price-box">
+                      <p class="price">620.00</p>
+                      <del>750.00</del>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="showcase">
+                  <div class="showcase-banner">
+                    <img
+                      src="./assets/images/products/p-19.webp"
+                      alt="saree"
+                      class="product-img default"
+                      width="300"
+                    />
+                    <img
+                      src="./assets/images/products/p-20.webp"
+                      alt="saree"
+                      class="product-img hover"
+                      width="300"
+                    />
+
+                    <p class="showcase-badge angle black">sale</p>
+
+                    <div class="showcase-actions">
+                      <button class="btn-action">
+                        <ion-icon name="heart-outline"></ion-icon>
+                      </button>
+
+                      <button class="btn-action">
+                        <ion-icon name="eye-outline"></ion-icon>
+                      </button>
+
+                      <button class="btn-action">
+                        <ion-icon name="repeat-outline"></ion-icon>
+                      </button>
+
+                      <button class="btn-action">
+                        <ion-icon name="bag-add-outline"></ion-icon>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="showcase-content">
+                    <p class="showcase-category">IKRA</p>
+
+                    <h3>
+                      <a href="product.html" class="showcase-title"
+                        >New Trend Chiffon Saree</a
+                      >
+                    </h3>
+
+                    <div class="showcase-rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star-outline"></ion-icon>
+                      <ion-icon name="star-outline"></ion-icon>
+                    </div>
+
+                    <div class="price-box">
+                      <p class="price">580.00</p>
+                      <del>640.00</del>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="showcase">
+                  <div class="showcase-banner">
+                    <img
+                      src="./assets/images/products/p-21.webp"
+                      alt="saree"
+                      class="product-img default"
+                      width="300"
+                    />
+                    <img
+                      src="./assets/images/products/p-22.webp"
+                      alt="saree"
+                      class="product-img hover"
+                      width="300"
+                    />
+
+                    <div class="showcase-actions">
+                      <button class="btn-action">
+                        <ion-icon name="heart-outline"></ion-icon>
+                      </button>
+
+                      <button class="btn-action">
+                        <ion-icon name="eye-outline"></ion-icon>
+                      </button>
+
+                      <button class="btn-action">
+                        <ion-icon name="repeat-outline"></ion-icon>
+                      </button>
+
+                      <button class="btn-action">
+                        <ion-icon name="bag-add-outline"></ion-icon>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="showcase-content">
+                    <p class="showcase-category">Adeeba</p>
+
+                    <h3>
+                      <a href="product.html" class="showcase-title"
+                        >Light Green Georgette Saree</a
+                      >
+                    </h3>
+
+                    <div class="showcase-rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star-outline"></ion-icon>
+                    </div>
+
+                    <div class="price-box">
+                      <p class="price">350.00</p>
+                      <del>650.00</del>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="showcase">
+                  <div class="showcase-banner">
+                    <img
+                      src="./assets/images/products/p-23.webp"
+                      alt="saree"
+                      class="product-img default"
+                      width="300"
+                    />
+                    <img
+                      src="./assets/images/products/p-24.webp"
+                      alt="saree"
+                      class="product-img hover"
+                      width="300"
+                    />
+
+                    <p class="showcase-badge angle black">sale</p>
+
+                    <div class="showcase-actions">
+                      <button class="btn-action">
+                        <ion-icon name="heart-outline"></ion-icon>
+                      </button>
+
+                      <button class="btn-action">
+                        <ion-icon name="eye-outline"></ion-icon>
+                      </button>
+
+                      <button class="btn-action">
+                        <ion-icon name="repeat-outline"></ion-icon>
+                      </button>
+
+                      <button class="btn-action">
+                        <ion-icon name="bag-add-outline"></ion-icon>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="showcase-content">
+                    <p class="showcase-category">Ramsa</p>
+
+                    <h3>
+                      <a href="product.html" class="showcase-title"
+                        >Full Booti Cotton Saree</a
+                      >
+                    </h3>
+
+                    <div class="showcase-rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star-outline"></ion-icon>
+                      <ion-icon name="star-outline"></ion-icon>
+                    </div>
+
+                    <div class="price-box">
+                      <p class="price">780.00</p>
+                      <del>850.00</del>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <!--
+      - TESTIMONIALS, CTA & SERVICE
+    -->
+    <div id="winter">
+      <div>
+        <div class="container">
+          <div class="testimonials-box">
+            <!--
+            - TESTIMONIALS
+          -->
+
+            <div class="testimonial">
+              <h2 class="title">testimonial</h2>
+
+              <div class="testimonial-card">
+                <img
+                  src="./assets/images/testimonial-1.webp"
+                  alt="alan doe"
+                  class="testimonial-banner"
+                  width="80"
+                  height="80"
+                />
+
+                <p class="testimonial-name">Ananya Pandey</p>
+
+                <p class="testimonial-title">Andhra Pradesh, India</p>
+
+                <img
+                  src="./assets/images/icons/quotes.svg"
+                  alt="quotation"
+                  class="quotation-img"
+                  width="26"
+                />
+
+                <p class="testimonial-desc">
+                  What a Great Quality Material used, I am Really Happty with this, Thanks Mau Mart
+                </p>
+              </div>
+            </div>
+
+            <!--
+            - CTA
+          -->
+          
+            <div class="cta-container">
+              <img
+                src="./assets/images/cta-banner.webp"
+                alt="summer collection"
+                class="cta-banner"
+              />
+
+              <a href="product.html" class="cta-content">
+                <p class="discount">Upto 70% Discount</p>
+
+                <h2 class="cta-title">Winter Collection</h2>
+
+                <p class="cta-text">Starting @ 499</p>
+
+                <button class="cta-btn">Shop now</button>
+              </a>
+            </div>
+          
+
+            <!--
+            - SERVICE
+          -->
+
+            <div class="service">
+              <h2 class="title">Our Services</h2>
+
+              <div class="service-container">
+                <a href="#" class="service-item">
+                  <div class="service-icon">
+                    <ion-icon name="boat-outline"></ion-icon>
+                  </div>
+
+                  <div class="service-content">
+                    <h3 class="service-title">Worldwide Delivery</h3>
+                    <p class="service-desc">For Order Over 1999</p>
+                  </div>
+                </a>
+
+                <a href="#" class="service-item">
+                  <div class="service-icon">
+                    <ion-icon name="rocket-outline"></ion-icon>
+                  </div>
+
+                  <div class="service-content">
+                    <h3 class="service-title">Next Day delivery</h3>
+                    <p class="service-desc">UP Orders Only</p>
+                  </div>
+                </a>
+
+                <a href="#" class="service-item">
+                  <div class="service-icon">
+                    <ion-icon name="call-outline"></ion-icon>
+                  </div>
+
+                  <div class="service-content">
+                    <h3 class="service-title">Best Online Support</h3>
+                    <p class="service-desc">Hours: 10AM - 10PM</p>
+                  </div>
+                </a>
+
+                <a href="#" class="service-item">
+                  <div class="service-icon">
+                    <ion-icon name="arrow-undo-outline"></ion-icon>
+                  </div>
+
+                  <div class="service-content">
+                    <h3 class="service-title">7 Days Return Policy</h3>
+                    <p class="service-desc">Easy & Free Return</p>
+                  </div>
+                </a>
+
+                <a href="#" class="service-item">
+                  <div class="service-icon">
+                    <ion-icon name="ticket-outline"></ion-icon>
+                  </div>
+
+                  <div class="service-content">
+                    <h3 class="service-title">20% money back</h3>
+                    <p class="service-desc">For Order Over 1000</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <!--
+      - BLOG
+    -->
+      <div id="blog">
+        <div class="blog">
+          <div class="container">
+            <div class="blog-container has-scrollbar">
+              <div class="blog-card">
+                <a href="#">
+                  <img
+                    src="./assets/images/blog-1.webp"
+                    alt="saree"
+                    width="300"
+                    class="blog-banner"
+                  />
+                </a>
+
+                <div class="blog-content">
+                  <a href="#" class="blog-category">Fashion</a>
+
+                  <a href="#">
+                    <h3 class="blog-title">
+                    The New Fashion of Cotton saree is increasing in Celebrity in Bollywood
+                    </h3>
+                  </a>
+
+                  <p class="blog-meta">
+                    By <cite>Mr Adil</cite> /
+                    <time datetime="2023-11-30">Nov 30, 2023</time>
+                  </p>
+                </div>
+              </div>
+
+              <div class="blog-card">
+                <a href="#">
+                  <img
+                    src="./assets/images/blog-2.webp"
+                    alt="saree"
+                    class="blog-banner"
+                    width="300"
+                  />
+                </a>
+
+                <div class="blog-content">
+                  <a href="#" class="blog-category">Silk Saree</a>
+
+                  <h3>
+                    <a href="#" class="blog-title"
+                      >The Market of Banarasi Silk saree is Decreased for last 2 years</a
+                    >
+                  </h3>
+
+                  <p class="blog-meta">
+                    By <cite>Mrs Sabboo</cite> /
+                    <time datetime="2023-12-01">Dec 01, 2023</time>
+                  </p>
+                </div>
+              </div>
+
+              <div class="blog-card">
+                <a href="#">
+                  <img
+                    src="./assets/images/blog-3.webp"
+                    alt="saree"
+                    class="blog-banner"
+                    width="300"
+                  />
+                </a>
+
+                <div class="blog-content">
+                  <a href="#" class="blog-category">Siva Textile</a>
+
+                  <h3>
+                    <a href="#" class="blog-title"
+                      >The Siva Textile Company has recorded the number of growth in woven saree</a
+                    >
+                  </h3>
+
+                  <p class="blog-meta">
+                    By <cite>Mrs Shakshi Joshi</cite> /
+                    <time datetime="2023-10-25">Oct 25, 2023</time>
+                  </p>
+                </div>
+              </div>
+
+              <div class="blog-card">
+                <a href="#">
+                  <img
+                    src="./assets/images/blog-4.webp"
+                    alt="saree"
+                    class="blog-banner"
+                    width="300"
+                  />
+                </a>
+
+                <div class="blog-content">
+                  <a href="#" class="blog-category">Chiffon</a>
+
+                  <h3>
+                    <a href="#" class="blog-title"
+                      >The Chiffon mix silk saree is the highest in demand in this festive seasion.</a
+                    >
+                  </h3>
+
+                  <p class="blog-meta">
+                    By <cite>Mr Kallu Shah</cite> /
+                    <time datetime="2023-09-15">Sep 15, 2023</time>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!--
+    - FOOTER
+  -->
+  <div id="Directory">
+    <footer>
+      <div class="footer-category">
+        <div class="container">
+          <h2 class="footer-category-title">Brand directory</h2>
+
+          <div class="footer-category-box">
+            <h3 class="category-box-title">Cotton Saree :</h3>
+
+            <a href="#" class="footer-category-link">MANGALGIRI</a>
+            <a href="#" class="footer-category-link">VENKATAGIRI</a>
+            <a href="#" class="footer-category-link">TAANT</a>
+            <a href="#" class="footer-category-link">SAMBALPURI</a>
+            <a href="#" class="footer-category-link">BANARASI</a>
+            <a href="#" class="footer-category-link">BANDHANI</a>
+            <a href="#" class="footer-category-link">Mauwali</a>
+          </div>
+
+          <div class="footer-category-box">
+            <h3 class="category-box-title">Silk Saree :</h3>
+
+            <a href="#" class="footer-category-link">DOLA SILK</a>
+            <a href="#" class="footer-category-link">KANJEEVARAM</a>
+            <a href="#" class="footer-category-link">TUSSAR SILK</a>
+            <a href="#" class="footer-category-link">ASSAM SILK</a>
+            <a href="#" class="footer-category-link">MASHRU</a>
+            <a href="#" class="footer-category-link">UPPADA</a>
+            <a href="#" class="footer-category-link">GADWAL</a>
+            <a href="#" class="footer-category-link">KANCHIPURAM </a>
+            <a href="#" class="footer-category-link">NARAYANPET</a>
+            <a href="#" class="footer-category-link">Banarasi</a>
+          </div>
+
+          <div class="footer-category-box">
+            <h3 class="category-box-title">Georgette Saree :</h3>
+
+            <a href="#" class="footer-category-link">ILKAL</a>
+            <a href="#" class="footer-category-link">BOMKAI</a>
+            <a href="#" class="footer-category-link">POCHAMPALLY</a>
+            <a href="#" class="footer-category-link">COORGI</a>
+            <a href="#" class="footer-category-link">Khirabadi</a>
+            <a href="#" class="footer-category-link">Mubarakpuri</a>
+            <a href="#" class="footer-category-link">CHETTINAD</a>
+            <a href="#" class="footer-category-link"> BALUCHARI </a>
+            <a href="#" class="footer-category-link">Malyalam</a>
+            <a href="#" class="footer-category-link">Maisuri</a>
+            <a href="#" class="footer-category-link">Kazipeti</a>
+          </div>
+
+          <div class="footer-category-box">
+            <h3 class="category-box-title">Chiffon Saree :</h3>
+
+            <a href="#" class="footer-category-link">PATOLA </a>
+            <a href="#" class="footer-category-link">KOTA DORIA</a>
+            <a href="#" class="footer-category-link">NET</a>
+            <a href="#" class="footer-category-link">LEHERIYA</a>
+            <a href="#" class="footer-category-link">Mauwali</a>
+            <a href="#" class="footer-category-link">Kopa</a>
+            <a href="#" class="footer-category-link">Khairabad</a>
+            <a href="#" class="footer-category-link">Mohammadabad</a>
+            <a href="#" class="footer-category-link">Banarasi</a>
+            <a href="#" class="footer-category-link">Chiffon</a>
+            <a href="#" class="footer-category-link">Mix Chiffon</a>
+
+          </div>
+          <div class="footer-category-box">
+            <h3 class="category-box-title">Woven Saree :</h3>
+
+            <a href="#" class="footer-category-link">Pure Woven </a>
+            <a href="#" class="footer-category-link">Mix woven</a>
+            <a href="#" class="footer-category-link">Cotton Woven</a>
+            <a href="#" class="footer-category-link">Silk Woven</a>
+            <a href="#" class="footer-category-link">Kashmiri woven</a>
+            </div>
+        </div>
+      </div>
+
+      <div class="footer-nav">
+        <div class="container">
+          <ul class="footer-nav-list">
+            <li class="footer-nav-item">
+              <h2 class="nav-title">Popular Categories</h2>
+            </li>
+
+            <li class="footer-nav-item">
+              <a href="#" class="footer-nav-link">Fashion wear</a>
+            </li>
+
+            <li class="footer-nav-item">
+              <a href="#" class="footer-nav-link">Party wear</a>
+            </li>
+
+            <li class="footer-nav-item">
+              <a href="#" class="footer-nav-link">Daily Wear</a>
+            </li>
+
+            <li class="footer-nav-item">
+              <a href="#" class="footer-nav-link">Festival</a>
+            </li>
+
+            <li class="footer-nav-item">
+              <a href="#" class="footer-nav-link">Trendy</a>
+            </li>
+          </ul>
+
+          <ul class="footer-nav-list">
+            <li class="footer-nav-item">
+              <h2 class="nav-title">Products</h2>
+            </li>
+
+            <li class="footer-nav-item">
+              <a href="#" class="footer-nav-link">Prices drop</a>
+            </li>
+
+            <li class="footer-nav-item">
+              <a href="#" class="footer-nav-link">New products</a>
+            </li>
+
+            <li class="footer-nav-item">
+              <a href="#" class="footer-nav-link">Best sales</a>
+            </li>
+
+            <li class="footer-nav-item">
+              <a href="#" class="footer-nav-link">Deal of the Day</a>
+            </li>
+
+            <li class="footer-nav-item">
+              <a href="#" class="footer-nav-link">Flash Sale</a>
+            </li>
+          </ul>
+
+          <ul class="footer-nav-list">
+            <li class="footer-nav-item">
+              <h2 class="nav-title">Our Company</h2>
+            </li>
+
+            <li class="footer-nav-item">
+              <a href="#" class="footer-nav-link">Customer satisfaction</a>
+            </li>
+
+            <li class="footer-nav-item">
+              <a href="#" class="footer-nav-link">Legal Notice</a>
+            </li>
+
+            <li class="footer-nav-item">
+              <a href="#" class="footer-nav-link">Terms and conditions</a>
+            </li>
+
+            <li class="footer-nav-item">
+              <a href="#" class="footer-nav-link">About us</a>
+            </li>
+
+            <li class="footer-nav-item">
+              <a href="#" class="footer-nav-link">Secure payment</a>
+            </li>
+          </ul>
+
+          <ul class="footer-nav-list">
+            <li class="footer-nav-item">
+              <h2 class="nav-title">Services</h2>
+            </li>
+
+            <li class="footer-nav-item">
+              <a href="#" class="footer-nav-link">On Time Delivey</a>
+            </li>
+
+            <li class="footer-nav-item">
+              <a href="#" class="footer-nav-link">Cash on Delivery</a>
+            </li>
+
+            <li class="footer-nav-item">
+              <a href="#" class="footer-nav-link">Best Value</a>
+            </li>
+
+            <li class="footer-nav-item">
+              <a href="#" class="footer-nav-link">Doorstep Pickup</a>
+            </li>
+
+            <li class="footer-nav-item">
+              <a href="#" class="footer-nav-link">Easy Return</a>
+            </li>
+          </ul>
+
+          <ul class="footer-nav-list">
+            <li class="footer-nav-item">
+              <h2 class="nav-title">Contact</h2>
+            </li>
+
+            <li class="footer-nav-item flex">
+              <div class="icon-box">
+                <ion-icon name="location-outline"></ion-icon>
+              </div>
+
+              <address class="content">
+                142/A-6, Church tower Kanchan Street, Mau, 275101
+              </address>
+            </li>
+
+            <li class="footer-nav-item flex">
+              <div class="icon-box">
+                <ion-icon name="call-outline"></ion-icon>
+              </div>
+
+              <a href="tel:+919616316925" class="footer-nav-link"
+                >+919616316925</a
+              >
+            </li>
+
+            <li class="footer-nav-item flex">
+              <div class="icon-box">
+                <ion-icon name="mail-outline"></ion-icon>
+              </div>
+
+              <a href="mailto:er.adilrasheed@gmail.com" class="footer-nav-link"
+                >er.adilrasheed@gmail.com</a
+              >
+            </li>
+          </ul>
+
+          <ul class="footer-nav-list">
+            <li class="footer-nav-item">
+              <h2 class="nav-title">Follow Us</h2>
+            </li>
+
+            <li>
+              <ul class="social-link">
+                <li class="footer-nav-item">
+                  <a href="#" class="footer-nav-link">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                  </a>
+                </li>
+
+                <li class="footer-nav-item">
+                  <a href="#" class="footer-nav-link">
+                    <ion-icon name="logo-twitter"></ion-icon>
+                  </a>
+                </li>
+
+                <li class="footer-nav-item">
+                  <a href="#" class="footer-nav-link">
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                  </a>
+                </li>
+
+                <li class="footer-nav-item">
+                  <a href="#" class="footer-nav-link">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container">
+          <img
+            src="./assets/images/payment.png"
+            alt="payment method"
+            class="payment-img"
+          />
+
+          <p class="copyright">
+            Copyright &copy; <a href="#">MauMart</a> all rights reserved.
+          </p>
+        </div>
+      </div>
+    </div>
+    </footer>
+
+    <!--
+    - custom js link
+  -->
+    <script src="./assets/js/script.js"></script>
+
+    <!--
+    - ionicon link
+  -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>
