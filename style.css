@@ -164,13 +164,13 @@ header .totalQuantity{
     text-decoration: none;
 }
 .checkoutLayout{
-    display: grid;
+    display: inline-block;
     grid-template-columns: repeat(2, 1fr);
     gap: 50px;
     padding: 20px;
 }
 .checkoutLayout .right{
-    background-color: #5358B3;
+    background-color: #4b4d60;
     border-radius: 20px;
     padding: 40px;
     color: #fff;
@@ -196,7 +196,7 @@ header .totalQuantity{
     border-radius: 20px;
     margin-top: 10px;
     border:none;
-    background-color: #6a6fc9;
+    background-color: #5d5f8d;
     color: #fff;
 }
 .checkoutLayout .right .return .row{
@@ -214,7 +214,7 @@ header .totalQuantity{
     height: 40px;
     border: none;
     border-radius: 20px;
-    background-color: #49D8B9;
+    background-color: #FA7200;
     margin-top: 20px;
     font-weight: bold;
     color: #fff;
