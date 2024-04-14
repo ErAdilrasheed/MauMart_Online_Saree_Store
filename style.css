@@ -259,4 +259,12 @@ header .totalQuantity{
     gap: 50px;
     padding: 0px;
 }
+.listProduct .item img{
+    background-color: #cfadad;
+    width: 345px;
+    height: 400px;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+    object-fit: cover;
+}
 }
