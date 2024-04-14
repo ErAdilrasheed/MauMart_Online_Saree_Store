@@ -163,11 +163,12 @@ header .totalQuantity{
     color: #fff;
     text-decoration: none;
 }
+
 .checkoutLayout{
     display: inline-block;
     grid-template-columns: repeat(2, 1fr);
     gap: 50px;
-    padding: 20px;
+    padding: 0px;
 }
 .checkoutLayout .right{
     background-color: #4b4d60;
