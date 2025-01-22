@@ -3,4 +3,4 @@
 <h3>Click on Star at the top right corner and then click fork button to make a clone of this repository </h3>
 <p>It is a static website design for selling saree online. A fully responsive design for mobile devices. Very helpful for mastering in html css and responsiveness. clone the repository and change accordingly </p>
 
-[**Live Demo**](https://www.maumart.live)
+[**Live Demo**](https://maumart.vercel.app)
